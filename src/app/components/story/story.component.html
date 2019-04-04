@@ -1,0 +1,26 @@
+<!-- <ol class="list-group">
+  <li class="list-group-item" *ngFor="let story of storiesArray; let i = index">
+    {{ i +1 }}.
+    <a href="{{ story.url }}">{{ story.title }}</a>
+    <span class="badge badge-primary badge-pill align-items-right">{{ story.score }}</span>
+  </li>
+</ol> -->
+
+<ol class="list-group">
+  <li *ngFor="let story of storiesArray; let i = index">
+    <div class="list-group-item flex-column align-items-start">
+      <a href="{{ story.url }}">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ story.title }}</h5>
+          <small>{{ story.time * 1000 | date:'yyyy-MM-dd HH:mm:ss' }}</small>
+        </div>
+      </a>
+      <div class="d-flex w-100 justify-content-between">
+        <small>By {{ story.by }}</small>
+        <small>
+          <span class="badge badge-info">Score: {{ story.score }}</span>
+        </small>
+      </div>
+    </div>
+  </li>
+</ol>
