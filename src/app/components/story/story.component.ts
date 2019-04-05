@@ -20,6 +20,11 @@ export class StoryComponent implements OnInit {
     this.getLatestStories();
   }
 
+  /**
+   * Gets story domain
+   * @param: story
+   * @returns story domain
+   */
   getStoryDomain(story: any): string {
     if (!!story.url) {
       this.urlArray = story.url.split('/');
@@ -29,6 +34,9 @@ export class StoryComponent implements OnInit {
 
   }
 
+  /**
+   * Gets latest stories
+   */
   private getLatestStories(): void {
     this.hackerNewsService.getLatestStories().subscribe(
       storyIds => {
@@ -43,6 +51,11 @@ export class StoryComponent implements OnInit {
     );
   }
 
+
+  /**
+   * Gets story
+   * @param: id
+   */
   private getStory(id: number): void {
     this.hackerNewsService.getStory(id).subscribe(
       story => {

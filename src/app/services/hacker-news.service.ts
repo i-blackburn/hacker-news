@@ -13,12 +13,23 @@ export class HackerNewsService {
   constructor(private http: HttpClient) {
     this.url = 'https://hacker-news.firebaseio.com/v0';
   }
+
+
+  /**
+   * Gets latest stories
+   * @returns latest stories
+   */
   getLatestStories(): Observable<any> {
     return this.http
       .get(this.url + '/newstories.json')
       .pipe(map(response => response));
   }
 
+  /**
+   * Gets story
+   * @param: id
+   * @returns story
+   */
   getStory(id: number): Observable<any> {
     return this.http
       .get(this.url + '/item/' + id + '.json?print=pretty')
