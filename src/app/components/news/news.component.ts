@@ -11,7 +11,7 @@ export class NewsComponent implements OnInit {
   story: any;
   storiesArray: any[];
 
-  constructor(private hackerNewsService: HackerNewsService) { }
+  constructor(private hackerNewsService: HackerNewsService) {}
 
   ngOnInit() {
     this.storiesArray = [];
@@ -27,7 +27,8 @@ export class NewsComponent implements OnInit {
             this.getStory(id);
           }
         });
-      }, error => console.log('Something went wrong')
+      },
+      error => console.log('Something went wrong')
     );
   }
 
@@ -35,7 +36,6 @@ export class NewsComponent implements OnInit {
     this.hackerNewsService.getStory(id).subscribe(story => {
       this.story = story;
       this.storiesArray.push(this.story);
-      console.log(this.story);
     });
   }
 }

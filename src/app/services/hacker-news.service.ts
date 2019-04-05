@@ -13,19 +13,14 @@ export class HackerNewsService {
     this.url = 'https://hacker-news.firebaseio.com/v0';
   }
   getLatestStories(): Observable<any> {
-    return this.http.get(this.url + '/newstories.json')
-      .pipe(
-        map(
-          response => response
-        )
-      );
+    return this.http
+      .get(this.url + '/newstories.json')
+      .pipe(map(response => response));
   }
 
   getStory(id: number): Observable<any> {
-    return this.http.get(this.url + '/item/' + id + '.json?print=pretty')
-      .pipe(
-        map(response => response)
-      );
+    return this.http
+      .get(this.url + '/item/' + id + '.json?print=pretty')
+      .pipe(map(response => response));
   }
-
 }
