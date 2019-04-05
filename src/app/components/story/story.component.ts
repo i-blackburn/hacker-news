@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
 import { HackerNewsService } from 'src/app/services/hacker-news.service';
-import { PageChangedEvent } from 'ngx-bootstrap/pagination/ngx-bootstrap-pagination';
 
 @Component({
   selector: 'app-story',

@@ -1,13 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { MomentModule } from 'ngx-moment';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { StoryComponent } from './components/story/story.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { MomentModule } from 'ngx-moment';
+import { AppComponent } from './app.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { StoryComponent } from './components/story/story.component';
+
 
 @NgModule({
   declarations: [
