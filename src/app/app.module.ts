@@ -5,7 +5,6 @@ import { MomentModule } from 'ngx-moment';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NewsComponent } from './components/news/news.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StoryComponent } from './components/story/story.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
@@ -14,7 +13,6 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
   declarations: [
     AppComponent,
     HeaderComponent,
-    NewsComponent,
     FooterComponent,
     StoryComponent
   ],
@@ -22,7 +20,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     BrowserModule,
     HttpClientModule,
     MomentModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

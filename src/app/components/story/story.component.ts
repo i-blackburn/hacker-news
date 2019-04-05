@@ -10,6 +10,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination/ngx-bootstrap-paginat
 export class StoryComponent implements OnInit {
   @Input() storiesArray: any[];
   storyIds: any[];
+  urlArray: any[];
   story: any;
 
   constructor(private hackerNewsService: HackerNewsService) { }
@@ -17,6 +18,15 @@ export class StoryComponent implements OnInit {
   ngOnInit() {
     this.storiesArray = [];
     this.getLatestStories();
+  }
+
+  getStoryDomain(story: any): string {
+    if (!!story.url) {
+      this.urlArray = story.url.split('/');
+      const domain = this.urlArray[2];
+      return domain;
+    }
+
   }
 
   private getLatestStories(): void {
@@ -29,15 +39,20 @@ export class StoryComponent implements OnInit {
           }
         });
       },
-      error => console.log('Something went wrong')
+      error => console.log(error)
     );
   }
 
   private getStory(id: number): void {
-    this.hackerNewsService.getStory(id).subscribe(story => {
-      this.story = story;
-      this.storiesArray.push(this.story);
-    });
+    this.hackerNewsService.getStory(id).subscribe(
+      story => {
+        if (!!story) {
+          this.story = story;
+          this.storiesArray.push(this.story);
+        }
+      },
+      error => console.log(error)
+    );
 
   }
 

@@ -3,7 +3,7 @@
     <div class="list-group-item flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <a href="{{ story.url }}">
-          <h6 class="mb-1">{{ story.title }}</h6>
+          <h6 class="mb-1">{{ story.title }}<small> ({{ getStoryDomain(story) }})</small></h6>
         </a>
         <small>{{ (story.time | amFromUnix) | amTimeAgo }}</small>
       </div>
