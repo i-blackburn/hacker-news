@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NewsComponent } from './components/news/news.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StoryComponent } from './components/story/story.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StoryComponent } from './components/story/story.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    MomentModule
+    MomentModule,
+    PaginationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

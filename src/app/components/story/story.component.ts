@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HackerNewsService } from 'src/app/services/hacker-news.service';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination/ngx-bootstrap-pagination';
 
 @Component({
   selector: 'app-story',
@@ -7,11 +8,37 @@ import { HackerNewsService } from 'src/app/services/hacker-news.service';
   styleUrls: ['./story.component.scss']
 })
 export class StoryComponent implements OnInit {
-  @Input() storiesArray: number;
+  @Input() storiesArray: any[];
+  storyIds: any[];
   story: any;
 
   constructor(private hackerNewsService: HackerNewsService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.storiesArray = [];
+    this.getLatestStories();
+  }
+
+  private getLatestStories(): void {
+    this.hackerNewsService.getLatestStories().subscribe(
+      storyIds => {
+        this.storyIds = storyIds;
+        this.storyIds.forEach((id, index) => {
+          if (index < 30) {
+            this.getStory(id);
+          }
+        });
+      },
+      error => console.log('Something went wrong')
+    );
+  }
+
+  private getStory(id: number): void {
+    this.hackerNewsService.getStory(id).subscribe(story => {
+      this.story = story;
+      this.storiesArray.push(this.story);
+    });
+
+  }
 
 }

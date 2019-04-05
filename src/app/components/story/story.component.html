@@ -11,13 +11,11 @@
         <small>
           By {{ story.by }}
           <div>
-            <span>{{ story.descendants }}</span>
-            <span *ngIf="story.descendants === 0 || story.descendants > 1"> comments</span>
-            <span *ngIf="story.descendants === 1"> comment</span>
+            <span>{{ story.descendants }} {{story.descendants === 1 ? "comment" : "comments"}}</span>
           </div>
         </small>
         <small>
-          <span class="badge badge-info">Score: {{ story.score }}</span>
+          <span class="badge badge-warning">{{ story.score }} {{story.score === 1 ? "point" : "points"}}</span>
         </small>
       </div>
     </div>
