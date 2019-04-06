@@ -25,6 +25,10 @@ export class StoryComponent implements OnInit {
     this.getLatestStories();
   }
 
+  /**
+   * Pages changed
+   * @param: event
+   */
   pageChanged(event: PageChangedEvent): void {
     const startItem = (event.page - 1) * event.itemsPerPage;
     const endItem = event.page * event.itemsPerPage;
@@ -59,7 +63,7 @@ export class StoryComponent implements OnInit {
           }
         });
       },
-      error => console.log(error)
+      (error) => console.log(error)
     );
   }
 
@@ -77,7 +81,7 @@ export class StoryComponent implements OnInit {
           this.contentArray = this.totalStoriesArray.slice(0, 10);
         }
       },
-      error => console.log(error)
+      (error) => console.log(error)
     );
     this.showSpinner = false;
 

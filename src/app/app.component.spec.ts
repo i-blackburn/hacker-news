@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { StoryComponent } from './components/story/story.component';
+import { PaginationModule } from 'ngx-bootstrap';
 
 
 
@@ -17,7 +18,10 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MomentModule.forRoot()],
+      imports: [
+        MomentModule.forRoot(),
+        PaginationModule.forRoot()
+      ],
       declarations: [
         AppComponent,
         HeaderComponent,

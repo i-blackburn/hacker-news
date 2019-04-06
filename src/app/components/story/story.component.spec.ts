@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MomentModule } from 'ngx-moment';
 import { StoryComponent } from './story.component';
+import { PaginationModule } from 'ngx-bootstrap';
 
 
 
@@ -15,7 +16,10 @@ describe('StoryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MomentModule.forRoot()],
+      imports: [
+        MomentModule.forRoot(),
+        PaginationModule.forRoot()
+      ],
       declarations: [StoryComponent],
       providers: [
         HttpClient,
@@ -37,6 +41,7 @@ describe('StoryComponent', () => {
 
   it('should get the domain of story url when getStoryDomain is called', () => {
     const story = { url: 'https://testurl.com/testarticle.html' };
+    expect(component.getStoryDomain(story)).toBe('testurl.com');
   });
 
 });

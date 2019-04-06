@@ -23,7 +23,7 @@ import { StoryComponent } from './components/story/story.component';
     MomentModule,
     PaginationModule.forRoot(),
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
