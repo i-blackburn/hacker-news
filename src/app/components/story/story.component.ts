@@ -37,7 +37,7 @@ export class StoryComponent implements OnInit {
   /**
    * Gets latest stories
    */
-  private getLatestStories(): void {
+   getLatestStories(): void {
     this.hackerNewsService.getLatestStories().subscribe(
       storyIds => {
         this.storyIds = storyIds;

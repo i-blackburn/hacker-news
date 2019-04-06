@@ -23,4 +23,10 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should change the navbarOpen value when toggleNavbar is called', () => {
+    component.navbarOpen = true;
+    component.toggleNavbar();
+    expect(component.navbarOpen).toBeFalsy();
+  });
 });
