@@ -20,14 +20,14 @@ describe('HackernewsService', () => {
   it('getLatestStories should return value from observable', () => {
     const service: HackerNewsService = TestBed.get(HackerNewsService);
     service.getLatestStories().subscribe(value => {
-      expect(value).toBe('observable value');
+      expect(value).toBe('Observable Value');
     });
   });
 
   it('getStory should return value from observable', () => {
     const service: HackerNewsService = TestBed.get(HackerNewsService);
     service.getStory(12345).subscribe(value => {
-      expect(value).toBe('observable value');
+      expect(value).toBe('Observable Value');
     });
   });
 });
