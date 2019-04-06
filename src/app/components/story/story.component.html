@@ -7,7 +7,7 @@
   </span>
 </div>
 <ol class="list-group">
-  <li *ngFor="let story of storiesArray; let i = index">
+  <li *ngFor="let story of contentArray; let i = index">
     <div class="list-group-item flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <a href="{{ story.url }}" target="_blank">
@@ -28,4 +28,12 @@
       </div>
     </div>
   </li>
+  <div class="pagination">
+    <div class="col-xs-12 col-12">
+      <div class="content-wrapper">
+        <p class="content-item" *ngFor="let content of returnedArray">{{content}}</p>
+      </div>
+      <pagination [totalItems]="totalStoriesArray.length" (pageChanged)="pageChanged($event)"></pagination>
+    </div>
+  </div>
 </ol>

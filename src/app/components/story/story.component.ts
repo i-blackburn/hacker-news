@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ɵConsole } from '@angular/core';
 
 import { HackerNewsService } from 'src/app/services/hacker-news.service';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination/pagination.component';
 
 @Component({
   selector: 'app-story',
@@ -8,18 +9,27 @@ import { HackerNewsService } from 'src/app/services/hacker-news.service';
   styleUrls: ['./story.component.scss']
 })
 export class StoryComponent implements OnInit {
-  @Input() storiesArray: any[];
+  @Input() totalStoriesArray: any[];
   storyIds: any[];
   urlArray: any[];
   story: any;
   showSpinner: boolean;
+  contentArray: any[];
+  startArray: any[];
 
   constructor(private hackerNewsService: HackerNewsService) { }
 
   ngOnInit() {
     this.showSpinner = true;
-    this.storiesArray = [];
+    this.totalStoriesArray = [];
     this.getLatestStories();
+  }
+
+  pageChanged(event: PageChangedEvent): void {
+    const startItem = (event.page - 1) * event.itemsPerPage;
+    const endItem = event.page * event.itemsPerPage;
+    this.contentArray = this.totalStoriesArray.slice(startItem, endItem);
+    window.scrollTo(0, 0);
   }
 
   /**
@@ -44,7 +54,7 @@ export class StoryComponent implements OnInit {
       storyIds => {
         this.storyIds = storyIds;
         this.storyIds.forEach((id, index) => {
-          if (index < 30) {
+          if (index < 50) {
             this.getStory(id);
           }
         });
@@ -63,7 +73,8 @@ export class StoryComponent implements OnInit {
       story => {
         if (!!story) {
           this.story = story;
-          this.storiesArray.push(this.story);
+          this.totalStoriesArray.push(this.story);
+          this.contentArray = this.totalStoriesArray.slice(0, 10);
         }
       },
       error => console.log(error)
