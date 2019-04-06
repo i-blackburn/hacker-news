@@ -12,10 +12,12 @@ export class StoryComponent implements OnInit {
   storyIds: any[];
   urlArray: any[];
   story: any;
+  showSpinner: boolean;
 
   constructor(private hackerNewsService: HackerNewsService) { }
 
   ngOnInit() {
+    this.showSpinner = true;
     this.storiesArray = [];
     this.getLatestStories();
   }
@@ -66,6 +68,7 @@ export class StoryComponent implements OnInit {
       },
       error => console.log(error)
     );
+    this.showSpinner = false;
 
   }
 
