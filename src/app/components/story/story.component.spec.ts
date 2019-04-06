@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MomentModule } from 'ngx-moment';
 import { StoryComponent } from './story.component';
-import { HackerNewsService } from 'src/app/services/hacker-news.service';
+
 
 
 
@@ -36,7 +36,7 @@ describe('StoryComponent', () => {
   });
 
   it('should get the domain of story url when getStoryDomain is called', () => {
-    const story = {url: 'https://testurl.com/testarticle.html'};
+    const story = { url: 'https://testurl.com/testarticle.html' };
   });
 
 });
