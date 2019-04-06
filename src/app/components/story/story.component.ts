@@ -79,7 +79,6 @@ export class StoryComponent implements OnInit {
           this.story = story;
           this.totalStoriesArray.push(this.story);
           this.contentArray = this.totalStoriesArray.slice(0, 10);
-          console.log(this.contentArray);
         }
       },
       (error) => console.log(error)
